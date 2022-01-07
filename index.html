@@ -1,37 +1,84 @@
 <!DOCTYPE html>
-<html>
- <head>
- <meta charset="utf-8"/>
- <link rel="icon" type="png" href="favicon.png"/><!--menggunakan elemen
-    link agar link tersebut berbentuk favicon.png-->
- <title>beranda</title>
-
- <nav>  
- <a href="index.html">Beranda</a> | 
-    <a href="riwayat.html">Riwayat Hidup & Pendidikan</a> | 
-    <a href="cita cita.html">Cita-Cita</a>
-</nav> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulir</title>
 </head>
- <body>
-    <p> <h1>tentang saya</h1></p>
-     <P>hai perkenalkan nama saya<strong>putra dwi kusuma</strong>. saya adalah
-    mahasiswa di kampus stikom PGRI Banyuwangi.ini 
-    <br>
-    saya mampu mata
-kuliah desain 
- web atau yang dalam bahasa inggris di sebut sebagai 
- <br><em>web design</em>
-matakuliah ini memiliki beban sks<U>3 sks</U> 
-mari belajar.<strong><em><u>semangat</u></em></strong></P>
+<body>
+<table>
+ <tr>
+    <td>
+    <form action="" style="border: 1px solid black; width:300px; height:auto; padding:5px; ">
+        <label>Nama Lengkap :</label><br>
+        <input type="text" id="nama-lengkap" oninput="namalengkap()"><br>
+        <br>
+        <label>Email :</label><br>
+        <input type="email" id="masuk-email" oninput="masukemail()"><br>
+        <br>
+        
+        <input type="radio" id="pria" name="gender" value="Pria" oninput="handlechange(this)">
+        <label for="pria">Pria</label><br>
+        <input type="radio" id="wanita" name="gender" value="Wanita" oninput="handlechange(this)">
+        <label for="wanita">Wanita</label><br>
+        <br>
 
-<h1>KEAHLIAN</h1>
-<p>Saya seorang remaja yang berkuliah di <strong>stikom pgri banyuwangi</strong> saya mempunyai bakat menonjol
-<br>
-di bidang multimedia yaitu videografi dan film making  </p>
+        <label>Agama</label>
+        <select name="agama" id="selectagama" oninput="pilihanagama(this)">
+            <option value="islam">Islam</option>
+            <option value="kristen">Kristen</option>
+            <option value="hindu">Hindu</option>
+            <option value="budha">Budha</option>
+        </select><br>
+        <br>
+        <label for="alamat">Alamat</label><br>
+        <textarea name="alamat" id="alamat" cols="30" rows="10" oninput="isialamat(this)"></textarea><br>
+        <br>
+        <input type="submit" value="Kirim">
+    </form>
+    </td>
+    <td>
+    <form action="" style="border: 1px solid black; width:300px; height:426px; padding:5px; ">
+       <div id="output-nama"></div><br>
+       <div id="output-email"></div><br>
+       <div id="output-radio"></div><br>
+       <div id="output-agama"></div><br>
+       <div id="output-alamat"></div>
+       
+    </td>
+</form>
+</tr>
+</table>
+</div>
 
+<script>
+    function namalengkap() {
+        const x = document.getElementById("nama-lengkap").value;
+        document.getElementById("output-nama").innerHTML = "Nama lengkap : " + x;
+    }
+    function masukemail() {
+        const x = document.getElementById("masuk-email").value;
+        document.getElementById("output-email").innerHTML = "Email : " + x;
+    }
 
+    function handlechange(src) {
+        let hasil = src.value;
 
+        document.getElementById("output-radio").innerHTML ="Jenis Kelamin : " + hasil;
+    }
 
+    function pilihanagama(pilihan) {
+        let hasilpilihan = pilihan.value;
 
- </body>
+        document.getElementById("output-agama").innerHTML ="Agama : " + hasilpilihan;
+    }
+
+    function isialamat(hasilalamat) {
+        let isihasilalamat = hasilalamat.value;
+
+        document.getElementById("output-alamat").innerHTML ="Alamat : " + isihasilalamat;
+    }
+</script>
+</body>
 </html>
